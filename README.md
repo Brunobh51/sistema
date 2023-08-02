@@ -30,7 +30,7 @@ Este projeto está licenciado sob a [licença](link-para-licenca).
 
 ## Contato
 
-Para mais informações, entre em contato conosco em [email](mailto:seu-email@example.com) ou visite nosso site [www.loja-bibelo.com](http://www.loja-bibelo.com).
+Para mais informações, entre em contato conosco em [email](mailto:contato@bibelo.com.br) ou visite nosso site [www.bibelo.com.br](http://www.bibelo.com.br).
 
 Este é o repositório oficial do Sistema de Gestão de Valores de Motoboy e Correio da Loja Bibelo. Obrigado por utilizar nosso sistema!
 
