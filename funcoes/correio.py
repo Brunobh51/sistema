@@ -1,7 +1,4 @@
-import requests
-from decouple import config
-
-key = config('KEY_CORREIO')
+"""key = config('KEY_CORREIO')
 
 url = f"https://www.sgpweb.com.br/novo/api/consulta-precos-prazos?chave_integracao={key}"
 
@@ -32,3 +29,31 @@ print(f"Prazo de Entrega: {servico_04162['PrazoEntrega']} dias\n")
 print("Serviço 04669:")
 print(f"Valor: {servico_04669['Valor']}")
 print(f"Prazo de Entrega: {servico_04669['PrazoEntrega']} dias")
+"""
+
+import requests
+from decouple import config
+
+key = config('KEY_CORREIO')
+url = f"https://www.sgpweb.com.br/novo/api/consulta-precos-prazos?chave_integracao={key}"
+
+def con_valor_correio(cep, peso):
+    payload = {
+    "cep_origem": "30170-130",
+    "cep_destino": cep,
+    "peso": peso,
+    "comprimento": "25",
+    "altura": "40",
+    "largura": "11",
+    "servicos": ["04162", "04669"]
+}
+    headers = {
+    "Content-Type": "application/json"
+}
+    response = requests.post(url, json=payload, headers=headers)
+    data = response.json()
+    
+    return(data)
+
+
+print(con_valor_correio(34600190, 2))
