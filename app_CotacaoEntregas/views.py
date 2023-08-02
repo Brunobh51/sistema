@@ -9,7 +9,8 @@ def cotacao(request):
         cep = request.POST.get('cep')
         content = consultar_cep(cep)
         
-        if content:
+        if content and not content.get('erro'):
+
             context = {
                 'rua': content['logradouro'],
                 'cidade': content['localidade'],
@@ -19,7 +20,7 @@ def cotacao(request):
             }
         else:
             context = {
-                'rua': f'O cep: {cep} não foi encontrado na base de dados',
+                'erro': f'O cep: {cep} não foi encontrado na base de dados',
             }
         
         return render(request, 'app_CotacaoEntregas/cotacao.html', context)
