@@ -1,11 +1,15 @@
 import requests
 
 def consultar_cep(cep):
-    cep = cep 
     url = f'https://viacep.com.br/ws/{cep}/json/'
-    response = requests.get(url).json()
-    dec_response = dict(response)
-    return dec_response
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+    #dec_response = dict(response)
+        return data
+    else:
+        return None
+
 
 
 

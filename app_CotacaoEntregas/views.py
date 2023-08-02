@@ -6,17 +6,22 @@ def dashboard(request):
 
 def cotacao(request):
     if request.method == "POST":
-        cep = request.POST.get('cep', '')
-        context = consultar_cep(cep)
-        context = {'rua': context['logradouro'],
-                    'cidade': context['localidade'],
-                    'bairro': context['bairro'],
-                    'cep': context['cep'],
-                    'uf': context['uf']}
+        cep = request.POST.get('cep')
+        content = consultar_cep(cep)
         
+        if content:
+            context = {
+                'rua': content['logradouro'],
+                'cidade': content['localidade'],
+                'bairro': content['bairro'],
+                'cep': content['cep'],
+                'uf': content['uf']
+            }
+        else:
+            context = {
+                'rua': f'O cep: {cep} não foi encontrado na base de dados',
+            }
         
-
-
         return render(request, 'app_CotacaoEntregas/cotacao.html', context)
     else:
         return render(request, 'app_CotacaoEntregas/cotacao.html')

@@ -1,15 +1,23 @@
 {% extends "base.html" %}
 
 {% block conteudo %}
-<p class="text-center">Bem vindo ao sistema de cotação e entregas</p>
-<form action="" method="post">
-    {% csrf_token %}
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" id="cep" name="cep" placeholder="Digite seu cep" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">🔎</button>
-    </div>
-    <div>
-        <p class="text-center">{{ rua }}, {{ bairro }} - {{ cidade }} - {{ uf }} - {{ cep }}</p> 
-    </div>
-</form>
+    <p class="text-center">Bem-vindo ao sistema de cotação e entregas</p>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">🔎</button>
+        </div>
+    </form>
+    
+    {% if cidade %}
+        <div class="text-center">
+            <p>{{ rua }}, {{ bairro }} - {{ cidade }} - {{ uf }} - {{ cep }}</p>
+            </div>
+            {% else id="cep" %}
+        <div class="text-center">
+            <p>Cidade não encontrada para o CEP informado.</p>
+        </div>
+    {% endif %}
 {% endblock conteudo %}
