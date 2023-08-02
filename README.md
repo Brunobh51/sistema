@@ -1,5 +1,3 @@
-Claro, aqui está uma versão mais concisa da descrição que você pode colocar no arquivo `README.md` do seu repositório:
-
 # Sistema de Gestão de Valores de Motoboy e Correio - Loja Bibelo
 
 Este repositório contém o código-fonte e a infraestrutura para o Sistema de Gestão de Valores de Motoboy e Correio da Loja Bibelo. O sistema oferece uma plataforma eficiente para gerenciar e consultar os registros de pagamentos e transações relacionados aos serviços de motoboy e envios postais da loja.
