@@ -1,24 +1,55 @@
 {% extends "base.html" %}
 
 {% block conteudo %}
-    <p class="text-center">Bem-vindo ao sistema de cotação e entregas</p>
-    
-    <form action="" method="post">
-        {% csrf_token %}
-        <div class="input-group mb-3">
-            <input type="text" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">🔎</button>
-        </div>
-    </form>
-    
+<h4><p class="text-center">Bem-vindo ao sistema de cotações e entregas</p></h4>
+
+
+<form class="row g-3" action="" method="post">
+    {% csrf_token %}
+
+    <div class="col-md-12">
+        <label for="cep" class="form-label">CEP</label>
+        <input type="int" max="9" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP" aria-label="CEP" aria-describedby="button-addon2">
+    </div>
+    <div class="col-md-2">
+        <label for="altura" class="form-label">Altura</label>
+        <input type="number" class="form-control" id="altura" name="altura" placeholder="Altura" value="2">
+    </div>
+
+    <div class="col-md-2">
+        <label for="largura" class="form-label">Largura</label>
+        <input type="number" class="form-control" id="largura" name="largura" placeholder="Largura" value="12">
+    </div>
+
+    <div class="col-md-3">
+        <label for="comprimento" class="form-label">Comprimento</label>
+        <input type="number" class="form-control" id="comprimento" name="comprimento" placeholder="Comprimento" value="17">
+    </div>
+
+    <div class="col-md-2">
+        <label for="peso" class="form-label">Peso</label>
+        <input type="number" class="form-control" id="peso" name="peso" placeholder="Peso" min="0" max="30" value="2">
+    </div>
+
+    <div class="col-md-2 d-flex align-items-end"><!-- Contêiner flexível -->
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">CONSULTAR</button>
+    </div>
+</form>
+
     {% if cidade %}
+    <br>
+    <div class="card-header">
         <div class="text-center">
             <p>{{ rua }}, {{ bairro }} - {{ cidade }} - {{ uf }} - {{ cep }}</p>
             </div>
-            {% else %}
-        <div class="text-center">
-            <p>{{ erro }}</p>
         </div>
+        <br>
+    {% else %}
+            <br>
+            <div class="card-header">
+                <p class="text-center">{{ erro }}</p>
+            </div>
+    
     {% endif %}
     
     <div class="row">
@@ -33,7 +64,7 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Prazo para entrega até {{ temposedex }} dias</h5>
-                    <p class="card-text">Entrega rápida e eficiente para suas encomendas. Chegue ao seu destino com agilidade.</p>
+                    <p class="card-text">Escolha o serviço PAC para um prazo econômico de entrega. Ideal para quem busca um custo-benefício vantajoso.</p>
                     <a href="#" class="btn btn-primary">R$ {{ valorsedex }}</a>
                 </div>
             </div>
@@ -62,9 +93,9 @@
                     <p ><h3 class="text-center">Motoboy</h3></p>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Entrega Rápida Local</h5>
-                    <p class="card-text">Serviço de motoboy para entregas locais rápidas e eficientes. Receba suas encomendas no mesmo dia.</p>
-                    <a href="#" class="btn btn-primary">R$ {{ valorsedex }}</a>
+                    <h5 class="card-title">Entrega Rápida Local entrega até 1 dia</h5>
+                    <p class="card-text">Escolha o serviço PAC para um prazo econômico de entrega. Ideal para quem busca um custo-benefício vantajoso.</p>
+                    <a href="#" class="btn btn-primary">R$ {{ valormotoboy }}</a>
                 </div>
             </div>
         </div>
