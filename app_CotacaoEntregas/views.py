@@ -1,5 +1,12 @@
 from django.shortcuts import render
 from funcoes.cep import consultar_cep
+from funcoes.correio import valor_correio
+"""
+# Acessando os valores específicos
+servico_sedex = response['servicos']['04162']
+servico_pac = response['servicos']['04669']
+
+"""
 
 def dashboard(request):
     return render(request, 'dashboard.html')
@@ -11,15 +18,27 @@ def cotacao(request):
         if cep == '':
             context={'erro': 'Favor digitar um cep para continuar' }
             return render(request, 'app_CotacaoEntregas/cotacao.html', context)
+        
         if content and not content.get('erro'):
+            valores = valor_correio(content['cep'])
+            
+            # Acessando os valores específicos
+            servico_sedex = valores['servicos']['04162']
+            servico_pac = valores['servicos']['04669']
 
             context = {
+                'tempopac': servico_pac['PrazoEntrega'],
+                'temposedex': servico_sedex['PrazoEntrega'],
+                'valorsedex': servico_sedex['Valor'],
+                'valorpac': servico_pac['Valor'],
                 'rua': content['logradouro'],
                 'cidade': content['localidade'],
                 'bairro': content['bairro'],
                 'cep': content['cep'],
                 'uf': content['uf']
             }
+            
+        
         else:
             context = {
                 'erro': f'O cep: {cep} não foi encontrado na base de dados',
@@ -28,23 +47,3 @@ def cotacao(request):
         return render(request, 'app_CotacaoEntregas/cotacao.html', context)
     else:
         return render(request, 'app_CotacaoEntregas/cotacao.html')
-
-
-"""if cep == '':
-    context = {'erro': 'Favor digitar um CEP para continuar'}
-    return render(request, 'app_CotacaoEntregas/cotacao.html', context)
-
-if content and not content.get('erro'):
-    context = {
-        'rua': content['logradouro'],
-        'cidade': content['localidade'],
-        'bairro': content['bairro'],
-        'cep': content['cep'],
-        'uf': content['uf']
-    }
-else:
-    context = {
-        'erro': f'O CEP {cep} não foi encontrado na base de dados',
-    }
-
-return render(request, 'app_CotacaoEntregas/cotacao.html', context)"""

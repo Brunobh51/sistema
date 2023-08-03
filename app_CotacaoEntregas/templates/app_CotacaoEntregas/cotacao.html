@@ -20,4 +20,58 @@
             <p>{{ erro }}</p>
         </div>
     {% endif %}
+    
+    <div class="row">
+         <!-- Card SEDEX -->
+        {% if cep %}
+        <div class="col-md-4">
+            
+            <div class="card">
+             <!--<img src="{URL_DA_IMAGEM_SEDEX}" class="card-img-top" alt="Imagem SEDEX"> -->
+                <div class="card-header">
+                    <p class="text-center"><h3 class="text-center">Sedex</h3></p>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Prazo para entrega até {{ temposedex }} dias</h5>
+                    <p class="card-text">Entrega rápida e eficiente para suas encomendas. Chegue ao seu destino com agilidade.</p>
+                    <a href="#" class="btn btn-primary">R$ {{ valorsedex }}</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+
+            <div class="card">
+             <!--<img src="{URL_DA_IMAGEM_PAC}" class="card-img-top" alt="Imagem PAC">-->
+                <div class="card-header">
+                    <p class="text-center"><h3 class="text-center">Pac</h3></p>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Prazo para entrega até {{ tempopac }} dias</h5>
+                    <p class="card-text">Escolha o serviço PAC para um prazo econômico de entrega. Ideal para quem busca um custo-benefício vantajoso.</p>
+                    <a href="#" class="btn btn-primary">R$ {{ valorpac }}</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+
+            <div class="card">
+             <!--    <img src="{URL_DA_IMAGEM_MOTOBOY}" class="card-img-top" alt="Imagem Motoboy">-->
+                <div class="card-header">
+                    <p ><h3 class="text-center">Motoboy</h3></p>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Entrega Rápida Local</h5>
+                    <p class="card-text">Serviço de motoboy para entregas locais rápidas e eficientes. Receba suas encomendas no mesmo dia.</p>
+                    <a href="#" class="btn btn-primary">R$ {{ valorsedex }}</a>
+                </div>
+            </div>
+        </div>
+        
+        {% endif %}
+    </div>
+    
+      
+
 {% endblock conteudo %}
