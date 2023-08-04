@@ -1,25 +1,30 @@
 {% extends "base.html" %}
 
 {% block conteudo %}
-<h4>
-    <p class="text-center">Bem-vindo ao sistema de cotações e entregas</p>
-</h4>
+<div class="header_teste">
+    <h3>
+        <p class="text-center"><strong>CALCULADORA DE FRETES</strong></p>
+    </h3>
+    <h6>
+        <p class="text-center">Faça a cotação do valor do envio e selecione a melhor opção para você.</p>
+    </h6>
+</div>
 
 
 <form class="row g-3" action="" method="post">
     {% csrf_token %}
 
-    <div class="col-md-12">
+    <div class="col-md-8">
         <label for="cep" class="form-label">CEP</label>
         <input type="int" max="9" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP" aria-label="CEP"
             aria-describedby="button-addon2">
     </div>
-    <div class="col-md-2">
+    <div class="col-md-4">
         <label for="altura" class="form-label">Altura</label>
         <input type="number" class="form-control" id="altura" name="altura" placeholder="Altura" value="2">
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-4">
         <label for="largura" class="form-label">Largura</label>
         <input type="number" class="form-control" id="largura" name="largura" placeholder="Largura" value="12">
     </div>
@@ -30,15 +35,17 @@
             value="17">
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
         <label for="peso" class="form-label">Peso</label>
         <input type="number" class="form-control" id="peso" name="peso" placeholder="Peso" min="0" max="30" value="2">
     </div>
 
-    <div class="col-md-2 d-flex align-items-end"><!-- Contêiner flexível -->
+    <div class="col-md-6"><!-- Contêiner flexível -->
         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">CONSULTAR</button>
     </div>
 </form>
+
+
 
 {% if cidade %}
 <br>
