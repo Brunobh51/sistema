@@ -40,7 +40,7 @@
     <br>
     <div class="card-header">
         <div class="text-center">
-            <p>{{ rua }}, {{ bairro }} - {{ cidade }} - {{ uf }} - {{ cep }}</p>
+            <h5><p>{{ rua }}, {{ bairro }} - {{ cidade }} - {{ uf }} - {{ cep }}</p></h5>
             </div>
         </div>
         <br>
@@ -60,12 +60,12 @@
             <div class="card">
              <!--<img src="{URL_DA_IMAGEM_SEDEX}" class="card-img-top" alt="Imagem SEDEX"> -->
                 <div class="card-header">
-                    <p class="text-center"><h3 class="text-center">Sedex</h3></p>
+                    <p class="text-center"><h4 class="text-center">Sedex</h4></p>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Prazo para entrega até {{ temposedex }} dias</h5>
                     <p class="card-text">Escolha o serviço PAC para um prazo econômico de entrega. Ideal para quem busca um custo-benefício vantajoso.</p>
-                    <a href="#" class="btn btn-primary">R$ {{ valorsedex }}</a>
+                    <h4><p class="text-center">R$ {{ valorsedex }}</p></h4>
                 </div>
             </div>
         </div>
@@ -75,12 +75,12 @@
             <div class="card">
              <!--<img src="{URL_DA_IMAGEM_PAC}" class="card-img-top" alt="Imagem PAC">-->
                 <div class="card-header">
-                    <p class="text-center"><h3 class="text-center">Pac</h3></p>
+                    <p class="text-center"><h4 class="text-center">Pac</h4></p>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Prazo para entrega até {{ tempopac }} dias</h5>
                     <p class="card-text">Escolha o serviço PAC para um prazo econômico de entrega. Ideal para quem busca um custo-benefício vantajoso.</p>
-                    <a href="#" class="btn btn-primary">R$ {{ valorpac }}</a>
+                    <h4><p class="text-center">R$ {{ valorpac }}</p></h4>
                 </div>
             </div>
         </div>
@@ -90,12 +90,12 @@
             <div class="card">
              <!--    <img src="{URL_DA_IMAGEM_MOTOBOY}" class="card-img-top" alt="Imagem Motoboy">-->
                 <div class="card-header">
-                    <p ><h3 class="text-center">Motoboy</h3></p>
+                    <p ><h4 class="text-center">Motoboy</h4></p>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Entrega Rápida Local entrega até 1 dia</h5>
                     <p class="card-text">Escolha o serviço PAC para um prazo econômico de entrega. Ideal para quem busca um custo-benefício vantajoso.</p>
-                    <a href="#" class="btn btn-primary">R$ {{ valormotoboy }}</a>
+                      <h4><p class="text-center">R$ {{ valormotoboy }}</p></h4>
                 </div>
             </div>
         </div>
