@@ -9,4 +9,3 @@ def consultar_cep(cep):
         return data
     else:
         return None
-

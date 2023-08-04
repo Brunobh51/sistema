@@ -4,6 +4,7 @@ from decouple import config
 token_borzo = config('TOKEN_BORZO')
 url = 'https://robotapitest-br.borzodelivery.com/api/business/1.4/calculate-order'
 
+
 def valor_motoboy(cep):
     header = {
         'X-DV-Auth-Token': token_borzo,
@@ -24,5 +25,3 @@ def valor_motoboy(cep):
     response = requests.post(url, headers=header, json=data).json()
 
     return response['order']['payment_amount']
-
-

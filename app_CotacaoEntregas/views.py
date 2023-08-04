@@ -9,17 +9,19 @@ servico_pac = response['servicos']['04669']
 
 """
 
+
 def dashboard(request):
     return render(request, 'dashboard.html')
+
 
 def cotacao(request):
     if request.method == "POST":
         cep = request.POST.get('cep')
         content = consultar_cep(cep)
         if cep == '':
-            context={'erro': 'Favor digitar um cep para continuar' }
+            context = {'erro': 'Favor digitar um cep para continuar'}
             return render(request, 'app_CotacaoEntregas/cotacao.html', context)
-        
+
         if content and not content.get('erro'):
             peso = request.POST.get('peso')
             valores = valor_correio(content['cep'], peso)
@@ -41,13 +43,12 @@ def cotacao(request):
                 'uf': content['uf']
 
             }
-            
 
         else:
             context = {
                 'erro': f'O cep: {cep} não foi encontrado na base de dados',
             }
-        
+
         return render(request, 'app_CotacaoEntregas/cotacao.html', context)
     else:
         return render(request, 'app_CotacaoEntregas/cotacao.html')
