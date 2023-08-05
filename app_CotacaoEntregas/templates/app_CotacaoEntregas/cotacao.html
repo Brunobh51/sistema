@@ -14,7 +14,7 @@
 <form class="row g-3" action="" method="post">
     {% csrf_token %}
 
-    <div class="col-md-8">
+    <div class="col-md-12">
         <label for="cep" class="form-label">CEP</label>
         <input type="int" max="9" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP" aria-label="CEP"
             aria-describedby="button-addon2">
@@ -40,7 +40,7 @@
         <input type="number" class="form-control" id="peso" name="peso" placeholder="Peso" min="0" max="30" value="2">
     </div>
 
-    <div class="col-md-6"><!-- Contêiner flexível -->
+    <div class="col-md-6 d-flex align-items-end"><!-- Contêiner flexível -->
         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">CONSULTAR</button>
     </div>
 </form>
