@@ -23,5 +23,10 @@ def valor_motoboy(cep):
         ]
     }
     response = requests.post(url, headers=header, json=data).json()
+    valor_boy = int(float(response['order']['payment_amount']))
 
-    return response['order']['payment_amount']
+    if valor_boy <= 18:
+        valor = '18,00'
+        return valor
+    else:
+        return response['order']['payment_amount']
