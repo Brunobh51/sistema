@@ -19,12 +19,12 @@
         <input type="int" max="9" class="form-control" id="cep" name="cep" placeholder="Digite seu CEP" aria-label="CEP"
             aria-describedby="button-addon2">
     </div>
-    <div class="col-md-4">
+    <div class="col-md-3">
         <label for="altura" class="form-label">Altura</label>
         <input type="number" class="form-control" id="altura" name="altura" placeholder="Altura" value="2">
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <label for="largura" class="form-label">Largura</label>
         <input type="number" class="form-control" id="largura" name="largura" placeholder="Largura" value="12">
     </div>
@@ -40,8 +40,8 @@
         <input type="number" class="form-control" id="peso" name="peso" placeholder="Peso" min="0" max="30" value="2">
     </div>
 
-    <div class="col-md-6 d-flex align-items-end"><!-- Contêiner flexível -->
-        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">CONSULTAR</button>
+    <div></div><!-- Contêiner flexível -->
+    <button class="btn btn-outline-secondary btn-custom" type="submit" id="button-addon2">CONSULTAR</button>
     </div>
 </form>
 
@@ -50,10 +50,10 @@
 {% if cidade %}
 <br>
 <div class="card-header">
-    <div class="text-center">
+    <div class="text-center custom-texto-valor">
         <h6>
-            <p>Endereço para entrega</p>
-            <p>{{ rua }}, {{ bairro }} - {{ cidade }} - {{ uf }} - {{ cep }}</p>
+            <p class="custom-texto-valor">Endereço para entrega</p>
+            <p class="custom-texto-valor">{{ rua }}, {{ bairro }} - {{ cidade }} - {{ uf }} - {{ cep }}</p>
         </h6>
     </div>
 </div>
@@ -61,7 +61,7 @@
 {% else %}
 <br>
 <div class="card-header">
-    <p class="text-center">{{ erro }}</p>
+    <p class="text-center custom-texto-valor">{{ erro }}</p>
 </div>
 
 {% endif %}
