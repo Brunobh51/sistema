@@ -51,7 +51,8 @@
     border-color: #0db67f;
 }
 
-.custom-btn-modala:hover {
+.custom-btn-modala:hover:only-child {
     background-color: hwb(160 0% 58%);
     border-color: hwb(160 0% 58%);
+
 }
