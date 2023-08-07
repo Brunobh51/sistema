@@ -3,30 +3,55 @@
     /* Cor de fundo desejada */
     color: rgb(255, 255, 255);
     font-weight: bold;
+
     /* Cor do texto no cabeçalho */
     /* Outros estilos de formatação do cabeçalho */
+}
+
+.custom-card-body-r {
+    display: block;
+    min-height: 245px;
+
 }
 
 .custom-card-header-pac {
     background-color: #003f6b;
     color: rgb(255, 255, 255);
     font-weight: bold;
+
 }
 
 .custom-card-header-motoboy {
     background-color: rgb(13, 182, 127);
     color: aliceblue;
     font-weight: bold;
+
 }
 
 .custom-texto-valor {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bolder;
     color: rgb(88, 109, 140);
+}
+
+.custom-btn-texto {
+    font-size: 16px;
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
 }
 
 .btn-custom {
     width: 35%;
     margin: 0 auto;
     display: block;
+}
+
+.custom-btn-modala {
+    background-color: #0db67f;
+    border-color: #0db67f;
+}
+
+.custom-btn-modala:hover {
+    background-color: hwb(160 0% 58%);
+    border-color: hwb(160 0% 58%);
 }
