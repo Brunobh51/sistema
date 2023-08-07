@@ -10,7 +10,6 @@
     </h6>
 </div>
 
-
 <form class="row g-3" action="" method="post">
     {% csrf_token %}
 
@@ -45,10 +44,8 @@
     </div>
 </form>
 
-
-
 {% if cidade %}
-<br>
+
 <div class="card-header">
     <div class="text-center custom-texto-valor">
         <h6>
@@ -57,13 +54,12 @@
         </h6>
     </div>
 </div>
-<br>
+
 {% else %}
-<br>
+
 <div class="card-header">
     <p class="text-center custom-texto-valor">{{ erro }}</p>
 </div>
-
 {% endif %}
 
 <div class="row">
@@ -78,15 +74,14 @@
                 </p>
             </div>
             <div class="card-body">
-                {% if temposedex == 1 %}
+                {% if temposedex == '1' %}
                 <p class="card-text text-center">Prazo para entrega após postagem é de {{ temposedex }} dia</p>
                 {% else %}
                 <p class="card-text text-center">Prazo para entrega após postagem é de {{ temposedex }} dias</p>
-
                 {% endif %}
                 <p class="text-center custom-texto-valor">R$ {{ valorsedex }}</p>
-
             </div>
+
         </div>
     </div>
 
@@ -100,10 +95,14 @@
                 </p>
             </div>
             <div class="card-body">
-                <p class="card-text text-center">Prazo para entrega após postagem é de {{ tempopac }}</p>
-
-
+                {% if valorsedex < valorpac %}
+                <p class="card-text text-center">Este endereço não possui a modalidade de frete via pac</p>
+                <p class="text-center custom-texto-valor">INDISPONÍVEL</p>
+                {% else %}
+                <p class="card-text text-center">Prazo para entrega após postagem é de {{ tempopac }} dias</p>
                 <p class="text-center custom-texto-valor">R$ {{ valorpac }}</p>
+                {% endif %}
+
 
             </div>
         </div>
@@ -119,7 +118,7 @@
                 </p>
             </div>
             <div class="card-body">
-                <p class="card-text text-center">Prazo para entrega após postagem é de 1</p>
+                <p class="card-text text-center">Prazo para entrega após postagem é de 1 dia</p>
 
                 <p class="text-center custom-texto-valor">R$ {{ valormotoboy }}</p>
 
@@ -129,7 +128,4 @@
 
     {% endif %}
 </div>
-
-
-
 {% endblock conteudo %}
