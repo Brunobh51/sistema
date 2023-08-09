@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from funcoes.cep import consultar_cep
-from funcoes.correio import valor_correio
-from funcoes.motoboy_borzo import valor_motoboy
+from .funcoes.cep import consultar_cep
+from .funcoes.correio import valor_correio
+from .funcoes.motoboy_borzo import valor_motoboy
 """
 # Acessando os valores específicos
 servico_sedex = response['servicos']['04162']
