@@ -2,12 +2,7 @@ from django.shortcuts import render
 from .funcoes.cep import consultar_cep
 from .funcoes.correio import valor_correio
 from .funcoes.motoboy_borzo import valor_motoboy
-"""
-# Acessando os valores específicos
-servico_sedex = response['servicos']['04162']
-servico_pac = response['servicos']['04669']
-
-"""
+from .models import Cliente
 
 
 def dashboard(request):
@@ -49,6 +44,40 @@ def cotacao(request):
                 'erro': f'O cep: {cep} não foi encontrado na base de dados',
             }
 
+        criar_cliente(request)
         return render(request, 'app_CotacaoEntregas/cotacao.html', context)
     else:
         return render(request, 'app_CotacaoEntregas/cotacao.html')
+
+
+def criar_cliente(request):
+    if request.method == "POST":
+        valorboy = request.POST.get('valormotoboy')
+        nome = request.POST.get('nome_cliente')
+        telefone = request.POST.get('telefone')
+        cep = request.POST.get('cep_cliente')
+        rua = request.POST.get('rua_cliente')
+        bairro = request.POST.get('bairro_cliente')
+        cidade = request.POST.get('cidade_cliente')
+        numero = request.POST.get('numero_cliente')
+        complemento = request.POST.get('complemento_cliente')
+        valor_pedido = request.POST.get('valor_pedido')
+        informacoes_adicionais = request.POST.get(
+            'exampleFormControlTextarea1')
+        pedido_pago = request.POST.get('flexSwitchCheckDefault')
+        motoboy_pago = request.POST.get('flexSwitchCheckDefault')
+
+        # Crie uma instância do modelo Cliente
+        novo_cliente = Cliente(
+            nome=nome,
+            telefone=telefone,
+            endereco=f'{cep}, {rua}, {bairro}, {cidade}, {numero}',
+            valor_pedido=valor_pedido,
+            valor_boy=valorboy,
+            pedido_pago=True,
+            motoboy_pago=True,
+            descricao=informacoes_adicionais
+        )
+
+        # Salve o cliente no banco de dados
+        novo_cliente.save()

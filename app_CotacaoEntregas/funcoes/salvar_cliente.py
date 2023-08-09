@@ -1,4 +1,5 @@
-from app_CotacaoEntregas.models import Cliente
+from django.db import models
+from models import Cliente
 
 
 def salvar_dados_cliente(nome, telefone, endereco, valor_pedido, valor_boy, pedido_pago, motoboy_pago, descricao):
@@ -14,7 +15,3 @@ def salvar_dados_cliente(nome, telefone, endereco, valor_pedido, valor_boy, pedi
     )
     cliente.save()
     return ('ok')
-
-
-print(salvar_dados_cliente('Bruno', '32124812', 'rua x ', '12,50',
-                           '12,00', 'sim', 'sim', 'teste'))
