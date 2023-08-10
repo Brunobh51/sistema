@@ -29,3 +29,29 @@ def criar_cliente(request):
     # Salve o cliente no banco de dados
     novo_cliente.save()
     print(motoboy_pago)
+    
+    
+    """
+    def consultar_cep(cep):
+    if cep != '':
+        validacep = re.match(r'^\d{8}$', cep)
+        if validacep:
+            url = f'https://viacep.com.br/ws/{cep}/json/'
+            response = requests.get(url)
+            
+            if response.status_code == 200:
+                data = response.json()
+                return data
+            elif response.status_code == 400:
+                erro = {'erro': 'O CEP fornecido é inválido'}
+                return erro['erro']
+            else:
+                erro = {'erro': f'Erro na consulta: status {response.status_code}'}
+                return erro['erro']
+        else:
+            erro = {'erro': 'Formato de CEP inválido'}
+            return erro['erro']
+    else:
+        erro = {'erro': 'CEP não fornecido'}
+        return erro['erro']
+        """
