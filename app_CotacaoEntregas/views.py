@@ -64,8 +64,8 @@ def criar_cliente(request):
         valor_pedido = request.POST.get('valor_pedido')
         informacoes_adicionais = request.POST.get(
             'exampleFormControlTextarea1')
-        pedido_pago = request.POST.get('flexSwitchCheckDefault')
-        motoboy_pago = request.POST.get('flexSwitchCheckDefault')
+        pedido_pago = request.POST.get('pedido_pago')
+        motoboy_pago = request.POST.get('motoboy_pago')
 
         # Crie uma instância do modelo Cliente
         novo_cliente = Cliente(
@@ -74,10 +74,12 @@ def criar_cliente(request):
             endereco=f'{cep}, {rua}, {bairro}, {cidade}, {numero}',
             valor_pedido=valor_pedido,
             valor_boy=valorboy,
-            pedido_pago=True,
-            motoboy_pago=True,
-            descricao=informacoes_adicionais
+            descricao=informacoes_adicionais,
+            pedido_pago=pedido_pago,
+            motoboy_pago=motoboy_pago,
         )
 
         # Salve o cliente no banco de dados
         novo_cliente.save()
+        print(motoboy_pago)
+        

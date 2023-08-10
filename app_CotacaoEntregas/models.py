@@ -13,9 +13,9 @@ class Cliente(models.Model):
     valor_boy = models.DecimalField(
         max_digits=10, decimal_places=2, verbose_name='Valor do Boy', blank=True, null=True)
     pedido_pago = models.BooleanField(
-        default=False, verbose_name='Pedido Pago')
+        default=False, verbose_name='Pedido Pago', blank=True, null=True)
     motoboy_pago = models.BooleanField(
-        default=False, verbose_name='Motoboy Pago')
+        default=False, verbose_name='Motoboy Pago', blank=True, null=True)
     descricao = models.TextField(
         verbose_name='Descrição', blank=True, null=True)
 
