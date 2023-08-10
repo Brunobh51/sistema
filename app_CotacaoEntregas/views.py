@@ -44,7 +44,7 @@ def cotacao(request):
                 'erro': f'O cep: {cep} não foi encontrado na base de dados',
             }
 
-        criar_cliente(request)
+       
         return render(request, 'app_CotacaoEntregas/cotacao.html', context)
     else:
         return render(request, 'app_CotacaoEntregas/cotacao.html')
