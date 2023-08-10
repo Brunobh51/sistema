@@ -94,13 +94,13 @@
                 </p>
             </div>
             <div class="card-body custom-card-body">
-                {% if valorsedex < valorpac %}
-                <p class="card-text text-center">Este endereço não possui a modalidade de frete via pac</p>
-                <p class="text-center custom-texto-valor">INDISPONÍVEL</p>
-                {% else %}
-                <p class="card-text text-center">Prazo para entrega após postagem é de {{ tempopac }} dias</p>
-                <p class="text-center custom-texto-valor">R$ {{ valorpac }}</p>
-                {% endif %}
+                {% if valorsedex < valorpac %} <p class="card-text text-center">Este endereço não possui a modalidade de
+                    frete via pac</p>
+                    <p class="text-center custom-texto-valor">INDISPONÍVEL</p>
+                    {% else %}
+                    <p class="card-text text-center">Prazo para entrega após postagem é de {{ tempopac }} dias</p>
+                    <p class="text-center custom-texto-valor">R$ {{ valorpac }}</p>
+                    {% endif %}
             </div>
         </div>
     </div>
@@ -146,7 +146,7 @@
                         <div class="col-md-6">
                             <label for="cep" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="nome_cliente" name="nome_cliente"
-                                placeholder="João da Silva" aria-label="nome_cliente" aria-describedby="button-addon2">
+                                placeholder="João da Silva" aria-label="nome_cliente">
                         </div>
 
                         <div class="col-md-3">
@@ -157,42 +157,37 @@
                         <div class="col-md-3">
                             <label for="cep" class="form-label">Cep</label>
                             <input type="text" class="form-control" id="cep_cliente" name="cep_cliente"
-                                placeholder="34600-190" aria-label="cep_cliente" aria-describedby="button-addon2"
-                                value="{{ cep }}">
+                                placeholder="34600-190" aria-label="cep_cliente" value="{{ cep }}">
                         </div>
 
                         <div class="col-md-3">
                             <label for="cep" class="form-label">Rua</label>
                             <input type="text" class="form-control" id="rua_cliente" name="rua_cliente"
-                                placeholder="Rua da aboboras" aria-label="rua_cliente" aria-describedby="button-addon2"
-                                value="{{ rua }}">
+                                placeholder="Rua da aboboras" aria-label="rua_cliente" value="{{ rua }}">
                         </div>
 
                         <div class="col-md-6">
                             <label for="cep" class="form-label">Bairro</label>
                             <input type="text" class="form-control" id="bairro_cliente" name="bairro_cliente"
-                                placeholder="Centro" aria-label="bairro_cliente" aria-describedby="button-addon2"
-                                value="{{ bairro }}">
+                                placeholder="Centro" aria-label="bairro_cliente" value="{{ bairro }}">
                         </div>
 
                         <div class="col-md-3">
                             <label for="cep" class="form-label">Cidade</label>
                             <input type="text" class="form-control" id="cidade_cliente" name="cidade_cliente"
-                                placeholder="34600-190" aria-label="cidade_cliente" aria-describedby="button-addon2"
-                                value="{{ cidade }}">
+                                placeholder="34600-190" aria-label="cidade_cliente" value=" {{ cidade }}">
                         </div>
 
                         <div class="col-md-3">
                             <label for="cep" class="form-label">N° da casa </label>
                             <input type="text" class="form-control" id="numero_cliente" name="numero_cliente"
-                                placeholder="Nº 150" aria-label="numero_cliente" aria-describedby="button-addon2">
+                                placeholder="Nº 150" aria-label="numero_cliente">
                         </div>
 
                         <div class="col-md-6">
                             <label for="cep" class="form-label">Complemento</label>
                             <input type="text" class="form-control" id="complemento_cliente" name="complemento_cliente"
-                                placeholder="Apto 102 bl 15" aria-label="complemento_cliente"
-                                aria-describedby="button-addon2">
+                                placeholder="Apto 102 bl 15" aria-label="complemento_cliente">
                         </div>
 
                         <div class="col-md-3">
@@ -207,13 +202,13 @@
                         </div>
 
                         <div class="col-md-3 form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault">Pedido pago ?</label>
+                            <input class="form-check-input" type="checkbox" id="pedido_pago">
+                            <label class="form-check-label" for="pedido_pago">Pedido pago ?</label>
                         </div>
 
                         <div class="col-md-3 form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                            <label class="form-check-label" for="flexSwitchCheckDefault">Motoboy pago ?</label>
+                            <input class="form-check-input" type="checkbox" id="motoboy_pago">
+                            <label class="form-check-label" for="motoboy_pago">Motoboy pago ?</label>
                         </div>
                         <div class="col-md-6">
                             <p class="text-start custom-texto-valor">Valor da entrega R$ {{ valormotoboy }}</p>
