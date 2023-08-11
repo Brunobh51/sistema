@@ -1,29 +1,29 @@
 from django.shortcuts import render
-from .funcoes.cep import consultar_cep
-from .funcoes.correio import valor_correio
-from .funcoes.motoboy_borzo import valor_motoboy
+from .funcoes.cotacao_entrega import consultar_cep, valor_correio, valor_motoboy
 from .models import Cliente
 
+# Constantes
+SERVICO_SEDEX = '04162'
+SERVICO_PAC = '04669'
 
 def dashboard(request):
     return render(request, 'dashboard.html')
-
 
 def cotacao(request):
     if request.method == "POST":
         cep = request.POST.get('cep')
         content = consultar_cep(cep)
-        if cep == '':
-            context = {'erro': 'Favor digitar um cep para continuar'}
+        
+        if not cep:
+            context = {'erro': 'Favor digitar um CEP para continuar'}
             return render(request, 'app_CotacaoEntregas/cotacao.html', context)
 
         if content and not content.get('erro'):
             peso = request.POST.get('peso')
             valores = valor_correio(content['cep'], peso)
             valormotoboy = valor_motoboy(content['cep'])
-            # Acessando os valores específicos
-            servico_sedex = valores['servicos']['04162']
-            servico_pac = valores['servicos']['04669']
+            servico_sedex = valores['servicos'][SERVICO_SEDEX]
+            servico_pac = valores['servicos'][SERVICO_PAC]
 
             context = {
                 'valormotoboy': valormotoboy,
@@ -36,14 +36,9 @@ def cotacao(request):
                 'bairro': content['bairro'],
                 'cep': content['cep'],
                 'uf': content['uf']
-
             }
-
         else:
-            context = {
-                'erro': f'O cep: {cep} não foi encontrado na base de dados',
-            }
-
+            context = {'erro': f'O CEP {cep} não foi encontrado na base de dados'}
        
         return render(request, 'app_CotacaoEntregas/cotacao.html', context)
     else:
