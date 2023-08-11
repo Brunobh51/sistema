@@ -2,6 +2,7 @@ from django.db import models
 
 class Cliente(models.Model):
     nome = models.CharField(max_length=200, verbose_name='Nome', blank=True, null=True)
+    n_pedido = models.CharField(max_length=200, verbose_name='Nº Pedido', blank=True, null=True)
     telefone = models.CharField(max_length=20, verbose_name='Telefone', blank=True, null=True)
     valor_pedido = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Valor do Pedido', blank=True, null=True)
     valor_boy = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Valor do Boy', blank=True, null=True)
