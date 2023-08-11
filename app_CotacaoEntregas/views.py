@@ -45,6 +45,12 @@ def cotacao(request):
     else:
         return render(request, 'app_CotacaoEntregas/cotacao.html')
     
-    
 def lista_entregas(request):
+    if not request.method == "POST":
+        return render(request, 'app_CotacaoEntregas/criacao_entrega.html')
+    
+    nome = request.POST.get('nome_cliente')
+    print(nome)
+    
     return render(request, 'app_CotacaoEntregas/criacao_entrega.html')
+    
