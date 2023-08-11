@@ -8,7 +8,7 @@ def consultar_cep(cep):
         data = response.json()
         return data
     else:
-        return {'erro':'O CEP informado é inválido ou inexistente'}
+        return None
 
 def valor_correio(cep, peso):
     key = config('KEY_CORREIO')

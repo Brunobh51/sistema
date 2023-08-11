@@ -22,6 +22,7 @@ def cotacao(request):
             peso = request.POST.get('peso')
             valores = valor_correio(content['cep'], peso)
             valormotoboy = valor_motoboy(content['cep'])
+            
             servico_sedex = valores['servicos'][SERVICO_SEDEX]
             servico_pac = valores['servicos'][SERVICO_PAC]
 
@@ -43,3 +44,7 @@ def cotacao(request):
         return render(request, 'app_CotacaoEntregas/cotacao.html', context)
     else:
         return render(request, 'app_CotacaoEntregas/cotacao.html')
+    
+    
+def lista_entregas(request):
+    return render(request, 'app_CotacaoEntregas/criacao_entrega.html')

@@ -1,4 +1,4 @@
-def criar_cliente(request):
+"""def criar_cliente(request):
     valorboy = request.POST.get('valormotoboy')
     nome = request.POST.get('nome_cliente')
     telefone = request.POST.get('telefone')
@@ -29,7 +29,7 @@ def criar_cliente(request):
     # Salve o cliente no banco de dados
     novo_cliente.save()
     print(motoboy_pago)
-    
+    """
     
     """
     def consultar_cep(cep):
