@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .funcoes.cotacao_entrega import consultar_cep, valor_correio, valor_motoboy
 from .models import Cliente
-
+from .forms import FormularioCadastro
 # Constantes
 SERVICO_SEDEX = '04162'
 SERVICO_PAC = '04669'
@@ -10,10 +10,12 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 def cotacao(request):
+    
     if request.method == "POST":
         cep = request.POST.get('cep')
         content = consultar_cep(cep)
         
+        form = FormularioCadastro()
         if not cep:
             context = {'erro': 'Favor digitar um CEP para continuar'}
             return render(request, 'app_CotacaoEntregas/cotacao.html', context)
@@ -41,16 +43,22 @@ def cotacao(request):
         else:
             context = {'erro': f'O CEP {cep} não foi encontrado na base de dados'}
        
-        return render(request, 'app_CotacaoEntregas/cotacao.html', context)
+        return render(request, 'app_CotacaoEntregas/cotacao.html', context, {'form':form})
     else:
-        return render(request, 'app_CotacaoEntregas/cotacao.html')
+        return render(request, 'app_CotacaoEntregas/cotacao.html', {'form':form})
     
 def lista_entregas(request):
     if not request.method == "POST":
         return render(request, 'app_CotacaoEntregas/criacao_entrega.html')
     
     nome = request.POST.get('nome_cliente')
+    
     print(nome)
     
     return render(request, 'app_CotacaoEntregas/criacao_entrega.html')
     
+def formulario(request):
+    form = FormularioCadastro()
+
+        
+    return render (request, 'app_CotacaoEntregas/home.html', {'form':form})
