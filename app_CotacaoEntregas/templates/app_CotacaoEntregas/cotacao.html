@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load bootstrap %}
 {% block conteudo %}
 <div class="header_teste">
     <h3>
@@ -13,7 +13,7 @@
 <form class="row g-3" action="" method="post">
     {% csrf_token %}
 
-    
+
 
     <div class="col-md-12">
         <label for="cep" class="form-label">CEP</label>
@@ -145,79 +145,63 @@
                     <form class="row g-3" action="{% url 'entregas' %}" method="post">
                         {% csrf_token %}
 
-                        <div class="col-md-6">
-                            <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="nome_cliente" name="nome_cliente"
-                                placeholder="João da Silva" aria-label="nome_cliente">
+                        <div class="col-md-2">
+                            {{ form.valor_pedido|bootstrap}}
+                        </div>
+
+                        <div class="col-md-4">
+                            {{ form.nome|bootstrap }}
                         </div>
 
                         <div class="col-md-3">
-                            <label for="telefone" class="form-label">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" name="telefone"
-                                placeholder="31-99243-0500">
+                            {{ form.telefone|bootstrap }}
                         </div>
                         <div class="col-md-3">
-                            <label for="cep" class="form-label">Cep</label>
-                            <input type="text" class="form-control" id="cep_cliente" name="cep_cliente"
-                                placeholder="34600-190" aria-label="cep_cliente" value="{{ cep }}">
+                            {{ formEndereco.cep|bootstrap}}
                         </div>
 
-                        <div class="col-md-3">
-                            <label for="cep" class="form-label">Rua</label>
-                            <input type="text" class="form-control" id="rua_cliente" name="rua_cliente"
-                                placeholder="Rua da aboboras" aria-label="rua_cliente" value="{{ rua }}">
+                        <div class="col-md-4">
+                            {{ formEndereco.rua|bootstrap}}
                         </div>
 
-                        <div class="col-md-6">
-                            <label for="cep" class="form-label">Bairro</label>
-                            <input type="text" class="form-control" id="bairro_cliente" name="bairro_cliente"
-                                placeholder="Centro" aria-label="bairro_cliente" value="{{ bairro }}">
+                        <div class="col-md-2">
+                            {{ formEndereco.numero|bootstrap}}
                         </div>
 
-                        <div class="col-md-3">
-                            <label for="cep" class="form-label">Cidade</label>
-                            <input type="text" class="form-control" id="cidade_cliente" name="cidade_cliente"
-                                placeholder="34600-190" aria-label="cidade_cliente" value=" {{ cidade }}">
+                        <div class="col-md-4">
+                            {{ formEndereco.bairro|bootstrap}}
                         </div>
 
-                        <div class="col-md-3">
-                            <label for="cep" class="form-label">N° da casa </label>
-                            <input type="text" class="form-control" id="numero_cliente" name="numero_cliente"
-                                placeholder="Nº 150" aria-label="numero_cliente">
+                        <div class="col-md-2">
+                            {{ formEndereco.cidade|bootstrap}}
                         </div>
 
-                        <div class="col-md-6">
-                            <label for="cep" class="form-label">Complemento</label>
-                            <input type="text" class="form-control" id="complemento_cliente" name="complemento_cliente"
-                                placeholder="Apto 102 bl 15" aria-label="complemento_cliente">
+                        <div class="col-md-4">
+                            {{ formEndereco.complemento|bootstrap}}
                         </div>
 
-                        <div class="col-md-3">
-                            <label for="valor_pedido" class="form-label">Valor</label>
-                            <input type="text" class="form-control" id="valor_pedido" name="valor_pedido"
-                                placeholder="R$ 150,00">
+                        <div class="col-md-2">
+                            {{ form.motoboy_pago|bootstrap}}
                         </div>
 
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Informações adicionais</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <div class="col-md-2">
+                            {{ form.valor_boy|bootstrap}}
                         </div>
 
-                        <div class="col-md-3 form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="pedido_pago">
-                            <label class="form-check-label" for="pedido_pago">Pedido pago ?</label>
+                        <div class="col-md-2">
+                            {{ form.pedido_pago|bootstrap}}
                         </div>
 
-                        <div class="col-md-3 form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="motoboy_pago">
-                            <label class="form-check-label" for="motoboy_pago">Motoboy pago ?</label>
+                        <div class="col-md-2">
+                            {{ form.valor_pedido|bootstrap}}
                         </div>
-                        <div class="col-md-6">
-                            <p class="text-start custom-texto-valor">Valor da entrega R$ {{ valormotoboy }}</p>
+
+                        <div class="col-md-12">
+                            {{ form.descricao|bootstrap}}
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                     <button type="submit" class="btn btn-primary custom-btn-modala">Salvar</button>
                 </div>
                 </form>

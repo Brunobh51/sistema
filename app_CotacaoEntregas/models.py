@@ -8,7 +8,8 @@ class Cliente(models.Model):
     valor_boy = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Valor do Boy', blank=True, null=True)
     pedido_pago = models.BooleanField(default=False, verbose_name='Pedido Pago', blank=True, null=True)
     motoboy_pago = models.BooleanField(default=False, verbose_name='Motoboy Pago', blank=True, null=True)
-    descricao = models.TextField(verbose_name='Descrição', blank=True, null=True)
+    descricao = models.TextField(verbose_name='Informações adicionais', blank=True, null=True)
+
 
     def __str__(self):
         return self.nome
@@ -24,6 +25,9 @@ class Endereco(models.Model):
     bairro = models.CharField(max_length=100, verbose_name='Bairro', blank=True, null=True)
     cidade = models.CharField(max_length=200, verbose_name='Cidade', blank=True, null=True)
     estado = models.CharField(max_length=20, verbose_name='UF', blank=True, null=True)
+    cep = models.CharField(max_length=9, verbose_name='Cep', blank=True, null=True)
+    complemento = models.CharField(max_length=200, verbose_name='Complemento', blank=True, null=True)
+
     
 
     def __str__(self):
