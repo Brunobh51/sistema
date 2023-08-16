@@ -65,13 +65,30 @@ def cotacao(request):
     else:
         return render(request, 'app_CotacaoEntregas/cotacao.html')
 
-
 def lista_entregas(request):
     if request.method == "POST":
-        nome = request.POST.get('nome_cliente')
-        print(nome)
+        clienteEntrega = FormularioCadastro(request.POST)
+        if clienteEntrega.is_valid():
+            clienteEntrega.save()
+            #clienteEntrega.full_clean()  # Não é necessário chamar full_clean() aqui
 
-    return render(request, 'app_CotacaoEntregas/criacao_entrega.html')
+            # Criar uma instância do FormularioEndereco com os dados do POST
+            clienteEndereco = FormularioEndereco(request.POST)
+
+            if clienteEndereco.is_valid():
+                # Salvar o endereço associando-o ao cliente
+                endereco = clienteEndereco.save(commit=False)
+                endereco.cliente = clienteEntrega
+                endereco.save()
+            else:
+                print('erro')
+
+    # Recuperar todos os clientes do banco de dados
+    clientes = Cliente.objects.all()
+
+    return render(request, 'app_CotacaoEntregas/criacao_entrega.html', {'clientes': clientes})
+
+
 
 
 def formulario(request):
