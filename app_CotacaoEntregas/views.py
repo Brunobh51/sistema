@@ -26,6 +26,7 @@ def cotacao(request):
         if content and not content.get('erro'):
             peso = request.POST.get('peso')
             valores = valor_correio(content['cep'], peso)
+            
             valormotoboy = valor_motoboy(content['cep'])
 
             servico_sedex = valores['servicos'][SERVICO_SEDEX]
