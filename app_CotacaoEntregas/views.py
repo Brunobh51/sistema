@@ -79,7 +79,7 @@ def lista_entregas(request):
             if clienteEndereco.is_valid():
                 # Salvar o endereço associando-o ao cliente
                 endereco = clienteEndereco.save(commit=False)
-                endereco.cliente = clienteEntrega
+                endereco.cliente = clienteDados
                 endereco.save()
             else:
                 print('erro')
