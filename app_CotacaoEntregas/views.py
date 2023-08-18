@@ -68,13 +68,13 @@ def cotacao(request):
 
 def lista_entregas(request):
     if request.method == "POST":
-        clienteEntrega = FormularioCadastro(request.POST)
-        if clienteEntrega.is_valid():
-            clienteEntrega.save()
-            #clienteEntrega.full_clean()  # Não é necessário chamar full_clean() aqui
+        clienteDados = FormularioEndereco(request.POST)
+        if clienteDados.is_valid():
+            clienteDados.save()
+            #clienteDados.full_clean()  # Não é necessário chamar full_clean() aqui
 
             # Criar uma instância do FormularioEndereco com os dados do POST
-            clienteEndereco = FormularioEndereco(request.POST)
+            clienteEndereco = FormularioCadastro(request.POST)
 
             if clienteEndereco.is_valid():
                 # Salvar o endereço associando-o ao cliente
